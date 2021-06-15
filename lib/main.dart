@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_demo/app-bidings.dart';
 
 import 'pages/home/home_controller.dart';
 import 'pages/login/login_controller.dart';
@@ -23,15 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, // 關閉 debug banner
       defaultTransition: Transition.fade, // 轉場特效 (如果想全部畫面一樣在用)
       initialRoute: '/', // 初始畫面的路由
-      initialBinding: BindingsBuilder(() {
-        Get.lazyPut(() => HomeController());
-        Get.lazyPut(() => LoginController());
-        Get.lazyPut(() => RouteController);
-        Get.lazyPut(() => TestController());
-        Get.lazyPut(() => ErrorController);
-        Get.lazyPut(() => ObxController());
-        Get.lazyPut(() => ParamController());
-      }),
+      initialBinding: AppBidings(),
       unknownRoute:
           GetPage(name: '/errorpage', page: () => ErrorPage()), // 找不到頁面時的路由
       routingCallback: (routing) {
